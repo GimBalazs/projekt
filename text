@@ -9,7 +9,7 @@ ASP.NET Core Web App (Model-View-Controller) --> név->RaktarInformatika  Authen
 			public string Megnevezes { get; set; }
 			
 			[Display(Name="Beszállító")]
-			[StringLenght(60)]
+			[StringLenght(30)]
 			public string Beszallito { get; set; }
 
 			[Display(Name="Beszerzési Ár")]
@@ -20,7 +20,7 @@ ASP.NET Core Web App (Model-View-Controller) --> név->RaktarInformatika  Authen
 	// GET: Raktar
 	public async Tast<IActionResult> Index(string Megnevezes, string Beszallito)
 		{
-			var model = new AruKeres();
+			#var/AruKeres# model = new AruKeres();
 			var aruk = _context.Aru.Select(x=>x);
 			if (!string.IsNullOrEmpty(Megnevezes))
 			{
@@ -67,7 +67,7 @@ ASP.NET Core Web App (Model-View-Controller) --> név->RaktarInformatika  Authen
 </p>
 <form asp-controller="Raktar" asp-action="Index" method="get">
 Megnevezés:
-<input asp-for="Megnevezes">
+<input type="text" asp-for="Megnevezes">
 
 Beszállító:
 <select asp-for="Beszallito" asp-items="Model.BeszallitoLista">
